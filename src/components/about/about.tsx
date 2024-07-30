@@ -13,7 +13,7 @@ const About = () => {
           <div className="col-lg-6">
             
             <img
-              src={'assets/images/ask_about_us.jpeg'}
+              src='assets/images/ask_about_us.jpeg'
               className="img-fluid rounded-4 mb-4"
               alt="about us"
             />

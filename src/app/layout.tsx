@@ -1,11 +1,12 @@
 
 import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
+import Script from 'next/script'
 import WorkClientComponent from "@/clientComponent/WorkClientComponent";
 import AosClientComponent from "@/clientComponent/AosClientComponent";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ReactQueryProvider } from "@/clientComponent/QueryClientComponent";
 import { DataProvider } from "@/context/DataContext";
+
 
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
@@ -16,6 +17,8 @@ import Footer from "@/components/footer/Footer";
 
 
 // const inter = Inter({ subsets: ["latin"] });
+
+
 
 export const metadata: Metadata = {
   title:{
@@ -56,7 +59,15 @@ export default function RootLayout({
  
   return (
     <html lang="en">
-       <link rel="icon" href="assets/images/favicon.ico" sizes="any" />
+
+      <head>
+
+             <Script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=6690cf0a595beb00197df933&product=sop' 
+            async ></Script>
+
+      </head>
+      
+             
        
       <body>
         <WorkClientComponent>

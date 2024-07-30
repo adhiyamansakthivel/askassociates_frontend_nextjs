@@ -1,15 +1,20 @@
 'use client';
-import React from 'react';
+import React, {useContext} from 'react';
 import Parser from "html-react-parser";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import './productDetails.scss';
 import APIEndPoints from "../../utils/APIEndPoints";
 import { useAPIGet } from "../../services/APIService";
 import Link from 'next/link';
+import { DataContext } from "../../context/DataContext";
+
+
 
 
 const ProductDeailCom = ({ ProductDetailData }: {ProductDetailData:any}) => {
     const productDet:any = ProductDetailData; 
+    const businessDetails:any = useContext(DataContext);
+    const whatsappNum:any = businessDetails?.whatsappUs;
 
     const relatedProductLink:string =  `${APIEndPoints?.GetRelatedProducts?.url}/${productDet?.slug_url}/${productDet?.category?.slug_url}`
 
@@ -129,10 +134,19 @@ const ProductDeailCom = ({ ProductDetailData }: {ProductDetailData:any}) => {
                         )}
                       </Container>
 
+                      
+                      
                      
                     </div>
+                    
+                          <Button className="rounded-0" style={{backgroundColor:"#075e54", marginLeft:"40px", marginTop:"100px"}}  href={whatsappNum?.whatsappUrl +`I’m interested in the *${productDet?.title}*`+"%0aCould you please provide more details?"} variant="success" size="lg" 
+                          >
+                            <i className="bi bi-whatsapp"></i> Whatsapp Inquiry
+                          </Button>
                    
                   </div>
+                  
+                 
                   
                 </div>
               </div>
