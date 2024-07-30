@@ -1,5 +1,6 @@
 'use client';
 import React, {useContext} from 'react';
+import { withRouter } from 'next/router'
 import Parser from "html-react-parser";
 import { Button, Card, Col, Container, Row } from "react-bootstrap";
 import './productDetails.scss';
@@ -129,8 +130,8 @@ const ProductDeailCom = ({ ProductDetailData }: {ProductDetailData:any}) => {
                         <br/>
                         {productDet?.price && (
                           <>
-                           <span style={{fontSize:'25px',  }}>₹{productDet?.price}</span>{productDet?.per != null ? <span style={{fontSize:'small'}}> /{productDet?.per} </span> : null }
-                            </>
+                            <span>Starting From</span> <span style={{fontSize:'25px',  }}>₹{productDet?.price}</span>{productDet?.per != null ? <span style={{fontSize:'small'}}> /{productDet?.per} </span> : null }
+                          </>
                         )}
                       </Container>
 
@@ -139,7 +140,7 @@ const ProductDeailCom = ({ ProductDetailData }: {ProductDetailData:any}) => {
                      
                     </div>
                     
-                          <Button className="rounded-0" style={{backgroundColor:"#075e54", marginLeft:"40px", marginTop:"100px"}}  href={whatsappNum?.whatsappUrl +`I’m interested in the *${productDet?.title}*`+"%0aCould you please provide more details?"} variant="success" size="lg" 
+                          <Button className="rounded-0" style={{backgroundColor:"#075e54", marginLeft:"40px", marginTop:"100px"}}  href={whatsappNum?.whatsappUrl +`I’m interested in the *${productDet?.title}*`+`%0aCategory: ${productDet?.category?.name}`+`%0aLink: ${process.env.NEXT_PUBLIC_WEBSITE_URL_PRODUCT+productDet?.slug_url}`+"%0aCould you please provide more details?"} variant="success" size="lg" 
                           >
                             <i className="bi bi-whatsapp"></i> Whatsapp Inquiry
                           </Button>

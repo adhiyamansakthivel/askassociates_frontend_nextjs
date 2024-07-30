@@ -113,8 +113,8 @@ const ProductComponent = ({ ProductList  }: {ProductList: any}) => {
                               
                               { whatsappNum?.whatsappnumber &&
                                 <div className="portfolio-footer" style={{backgroundColor:"#075e54"}}>
-                                  <a                              
-                                    href={whatsappNum?.whatsappUrl +"I’m interested in the *" + item?.title + "* %0aCould you please provide more details?"}
+                                  <a       
+                                    href={whatsappNum?.whatsappUrl +`I’m interested in the *${item?.title}*`+`%0aCategory: ${item?.category?.name}`+`%0aLink: ${process.env.NEXT_PUBLIC_WEBSITE_URL_PRODUCT+item?.slug_url}`+"%0aCould you please provide more details?"}                        
                                     className="readmore stretched-link cursor"
                                     style={{color:'white'}}
                                   >
